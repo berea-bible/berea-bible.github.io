@@ -49,8 +49,14 @@ body{
 }
 .wordmark .latin > span{ transition-delay:calc(180ms + var(--i) * 45ms); }
 .wordmark .greek > span{ transform:rotateX(-90deg); opacity:0; transition-delay:calc(var(--i) * 45ms); }
-.wordmark:hover .latin > span{ transform:rotateX(90deg); opacity:0; transition-delay:calc(var(--i) * 45ms); }
-.wordmark:hover .greek > span{ transform:none; opacity:1; transition-delay:calc(180ms + var(--i) * 45ms); }
+/* Mouse users flip on hover; touch users tap, which toggles .flipped (see index.html) */
+@media (hover: hover){
+  .wordmark:hover .latin > span{ transform:rotateX(90deg); opacity:0; transition-delay:calc(var(--i) * 45ms); }
+  .wordmark:hover .greek > span{ transform:none; opacity:1; transition-delay:calc(180ms + var(--i) * 45ms); }
+}
+.wordmark.flipped .latin > span{ transform:rotateX(90deg); opacity:0; transition-delay:calc(var(--i) * 45ms); }
+.wordmark.flipped .greek > span{ transform:none; opacity:1; transition-delay:calc(180ms + var(--i) * 45ms); }
+.wordmark{ -webkit-tap-highlight-color:transparent; user-select:none; }
 @media (prefers-reduced-motion: reduce){
   .wordmark .face > span{ transform:none !important; transition:opacity .2s !important; transition-delay:0s !important; }
 }

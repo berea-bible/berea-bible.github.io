@@ -36,5 +36,10 @@ document.getElementById('themeBtn').addEventListener('click', ()=>{
     localStorage.setItem('verbum-prefs', JSON.stringify(prefs));
   }catch(e){}
 });
+
+/* touch screens have no hover, so a tap toggles the Greek name instead */
+document.querySelector('.wordmark').addEventListener('pointerup', e=>{
+  if(e.pointerType !== 'mouse') e.currentTarget.classList.toggle('flipped');
+});
 </script>
 </html>

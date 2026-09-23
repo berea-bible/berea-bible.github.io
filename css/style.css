@@ -37,10 +37,23 @@ body{
 /* Wordmark: Didot with an oxblood rule over it, inset from both ends (see favicon.svg) */
 .wordmark{
   font-family:'GFS Didot',serif; font-weight:400; font-size:clamp(3.5rem, 18vw, 7rem);
-  line-height:1; margin:0; position:relative; display:inline-block; padding-top:.16em;
+  line-height:1; margin:0; position:relative; display:inline-grid; padding-top:.16em;
   letter-spacing:.1em;
 }
 .wordmark .sc{ text-transform:uppercase; font-size:.9em; letter-spacing:.2em; }
+/* On hover each letter flips over, one after another, from Berea to Βέροια */
+.wordmark .face{ grid-area:1/1; justify-self:center; perspective:4em; }
+.wordmark .face > span{
+  display:inline-block; transform-origin:50% 60%;
+  transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .28s;
+}
+.wordmark .latin > span{ transition-delay:calc(180ms + var(--i) * 45ms); }
+.wordmark .greek > span{ transform:rotateX(-90deg); opacity:0; transition-delay:calc(var(--i) * 45ms); }
+.wordmark:hover .latin > span{ transform:rotateX(90deg); opacity:0; transition-delay:calc(var(--i) * 45ms); }
+.wordmark:hover .greek > span{ transform:none; opacity:1; transition-delay:calc(180ms + var(--i) * 45ms); }
+@media (prefers-reduced-motion: reduce){
+  .wordmark .face > span{ transform:none !important; transition:opacity .2s !important; transition-delay:0s !important; }
+}
 .wordmark::before{
   content:""; position:absolute; top:0; left:9%; right:9%; height:.07em; background:var(--rule);
 }

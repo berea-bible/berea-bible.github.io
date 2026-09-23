@@ -12,7 +12,10 @@ try{ const t = JSON.parse(localStorage.getItem('verbum-prefs') || '{}').theme; i
 </script>
 
 <main class="hero">
-  <h1 class="wordmark" aria-label="Berea">B<span class="sc">erea</span></h1>
+  <h1 class="wordmark" aria-label="Berea">
+    <span class="face latin" aria-hidden="true"><span style="--i:0">B</span><span class="sc" style="--i:1">e</span><span class="sc" style="--i:2">r</span><span class="sc" style="--i:3">e</span><span class="sc" style="--i:4">a</span></span>
+    <span class="face greek" lang="el" aria-hidden="true"><span style="--i:0">Β</span><span style="--i:1">έ</span><span style="--i:2">ρ</span><span style="--i:3">ο</span><span style="--i:4">ι</span><span style="--i:5">α</span></span>
+  </h1>
   <p class="tagline">Read the New Testament, compare translations with a Greek lexicon, and reference commentaries from the early Church.</p>
   <a class="cta" href="/berea/">Open the reader</a>
 </main>

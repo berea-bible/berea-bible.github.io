@@ -25,20 +25,22 @@
 *{box-sizing:border-box}
 body{
   margin:0; min-height:100vh; min-height:100dvh;
-  display:flex; align-items:center; justify-content:center;
-  padding:calc(env(safe-area-inset-top,0px) + 24px) 16px calc(env(safe-area-inset-bottom,0px) + 24px);
+  display:flex; flex-direction:column; align-items:center;
+  padding:calc(env(safe-area-inset-top,0px) + 24px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);
   background:var(--bg); color:var(--ink);
   font-family:'Source Serif 4',serif;
   -webkit-font-smoothing:antialiased;
 }
 
-.hero{ max-width:34rem; text-align:center; display:flex; flex-direction:column; align-items:center; }
+.hero{ margin:auto 0; max-width:34rem; text-align:center; display:flex; flex-direction:column; align-items:center; }
 
 /* Wordmark: Didot with an oxblood rule over it, inset from both ends (see favicon.svg) */
 .wordmark{
   font-family:'GFS Didot',serif; font-weight:400; font-size:clamp(3.5rem, 18vw, 7rem);
   line-height:1; margin:0; position:relative; display:inline-block; padding-top:.16em;
+  letter-spacing:.1em;
 }
+.wordmark .sc{ text-transform:uppercase; font-size:.9em; letter-spacing:.2em; }
 .wordmark::before{
   content:""; position:absolute; top:0; left:9%; right:9%; height:.07em; background:var(--rule);
 }
@@ -52,6 +54,14 @@ body{
 }
 .cta:hover{ filter:brightness(1.1); }
 .cta:focus-visible, #themeBtn:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+.footnav{
+  display:flex; gap:20px; justify-content:center; margin-top:40px;
+  font-family:'Inter',system-ui,sans-serif; font-size:.8rem;
+}
+.footnav a{ color:var(--ink-dim); text-decoration:none; }
+.footnav a:hover{ color:var(--ink); text-decoration:underline; }
+.footnav a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
 
 #themeBtn{
   position:fixed; top:calc(env(safe-area-inset-top,0px) + 14px); right:16px;

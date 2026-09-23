@@ -12,10 +12,13 @@ try{ const t = JSON.parse(localStorage.getItem('verbum-prefs') || '{}').theme; i
 </script>
 
 <main class="hero">
-  <h1 class="wordmark">Berea</h1>
+  <h1 class="wordmark" aria-label="Berea">B<span class="sc">erea</span></h1>
   <p class="tagline">Read the New Testament, compare translations with a Greek lexicon, and reference commentaries from the early Church.</p>
   <a class="cta" href="/berea/">Open the reader</a>
 </main>
+<nav class="footnav">
+  <a href="https://www.github.com/berea-bible">Open source on GitHub</a>
+</nav>
 <button id="themeBtn" title="Toggle theme">&#9788;</button>
 
 <script>/* theme toggle; shares the reader's prefs key so the choice carries over */
